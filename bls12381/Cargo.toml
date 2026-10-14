@@ -1,0 +1,21 @@
+# GENERATED for pairing/bls12381@1.0.0. Do not edit — `--update` rewrites it.
+[package]
+name = "fherma-solution"
+version = "0.1.0"
+edition = "2021"
+
+# No dependencies. The descriptor this reads is ours and is four keys wide, so
+# a scanner beats a crate that would drag proc-macros, a modern toolchain and a
+# lockfile into a build that has to be reproducible in a sandbox with no
+# network.
+# arkworks: the Rust library most zero-knowledge work is built on.
+[dependencies]
+ark-bls12-381 = "0.6"
+ark-ec = "0.6"
+ark-ff = "0.6"
+
+# Release unless told otherwise: an answer measured without optimisation is not
+# a measurement of the answer.
+[profile.release]
+opt-level = 3
+lto = true
